@@ -25,15 +25,14 @@ public class IdempotentFilterApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(IdempotentFilterApplication.class, args);
 	}
-
-	@Bean
-	CommandLineRunner commandLineRunner(@Qualifier("redisTemplate") RedisTemplate template) {
-		return args -> {
-			log.info("saving request");
-			Request request = new Request("1","foo","bar", LocalDateTime.now(),null);
-			template.opsForList().leftPush("123456",request);
-//			dao.save(request);
-		};
-	}
+//
+//	@Bean
+//	CommandLineRunner commandLineRunner(@Qualifier("redisTemplate") RedisTemplate template) {
+//		return args -> {
+//			log.info("saving request");
+//			Request request = new Request("1","foo","bar", LocalDateTime.now(),null);
+//			template.opsForList().leftPush("123456",request);
+//		};
+//	}
 
 }

@@ -9,6 +9,7 @@
 * https://redis.io/topics/transactions
 
 **Spring Reverse Proxy**
+* https://stackoverflow.com/questions/29359254/simple-reverse-proxy-with-spring-boot-and-netflix-zuul
 * https://github.com/mkopylec/charon-spring-boot-starter
 
 **Idempotent articles**

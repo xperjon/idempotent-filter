@@ -1,0 +1,43 @@
+version: '3.4'
+
+services:
+  idempotent:
+    build: .
+#    image: blinfo/idempotent-proxy
+    ports:
+      - 8080:8080
+    depends_on:
+      - redis
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+
+  rebrow:
+    image: marian/rebrow
+    ports:
+      - 5001:5001
+
+#  bla-api:
+#    image: blinfo/bla-api
+#    ports:
+#      - 8084:8080
+#    environment:
+#      JAVA_OPTS: -Ddatabase.host=bla-api-db
+#    depends_on:
+#      - bla-api-db
+#
+#  bla-api-db:
+#    image: blinfo/bla-api-db-subman
+#    ports:
+#      - 3309:3306
+#    volumes:
+#      - bla-api-db:/var/lib/mysql
+#    environment:
+#      MYSQL_DATABASE: blaapi
+#      MYSQL_USER: hej
+#      MYSQL_PASSWORD: baberiba
+#      MYSQL_ROOT_PASSWORD: root
